@@ -1,0 +1,17 @@
+{
+  "useWebsocket": true,
+  "useUnsecureURL": false,
+  "hideInformations": false,
+  "dontRefreshInfos": false,
+  "protocol": "https",
+  "hostname": "moodle.caseine.org",
+  "path": "/mod/vpl/webservice.php",
+  "vplId": "30177",
+  "personalToken": "161f5a4732591ab7e3942af63b7aa179",
+  "files": [
+    "apobanque/TestBanque.java",
+    "apobanque/Banque.java",
+    "apobanque/CompteBancaire.java",
+    "apobanque/TestCompteBancaire.java"
+  ]
+}
