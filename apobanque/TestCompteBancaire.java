@@ -17,12 +17,14 @@ public class TestCompteBancaire {
 		System.out.print(ken.infos());
 		System.out.print(alain.infos());
 
-		double somme = 140.0;
+		double somme = 200.0;
 		boolean succes;
-
+		// boolean decou;
 		System.out.println("\nRetrait de " + somme + " euros...\n");
 		succes = inconnu.retrait(somme);
+
 		System.out.println(succes);
+
 		System.out.print(inconnu.infos());
 		if (!succes) {
 			System.out.println(inconnu.getClient() + " n'a pas pu retirer la somme de " +
@@ -34,25 +36,28 @@ public class TestCompteBancaire {
 		if (!succes) {
 			System.out.println(ken.getClient() + " n'a pas pu retirer la somme de " +
 					somme + "euros.\n");
+		} else {
+			System.out.println("Il a pu retirer" + somme);
 		}
+		System.out.println(ken.estADecouvert());
 
 		succes = alain.retrait(somme);
+		// decou = alain.estADecouvert();
+		// System.out.println("En decouverte ou pas :" + decou);
 		System.out.print(alain.infos());
 		if (!succes) {
 			System.out.println(alain.getClient() + " n'a pas pu retirer la somme de " +
 					somme + "euros.\n");
 		}
 
-		/*
-		 * somme = 100.0;
-		 * System.out.println("\nDépôt de " + somme + " euros...\n");
-		 * inconnu.depot(somme);
-		 * System.out.print(inconnu.infos());
-		 * ken.depot(somme);
-		 * System.out.print(ken.infos());
-		 * alain.depot(somme);
-		 * System.out.print(alain.infos());
-		 */
+		somme = 100.0;
+		System.out.println("\nDépôt de " + somme + " euros...\n");
+		inconnu.depot(somme);
+		System.out.print(inconnu.infos());
+		ken.depot(somme);
+		System.out.print(ken.infos());
+		alain.depot(somme);
+		System.out.print(alain.infos());
 
 	}
 }

@@ -24,8 +24,8 @@ class CompteBancaire {
     CompteBancaire(int numero, String nom) {
         this.numero = numero;
         this.client = nom;
-        this.solde = 100;
-        this.decouvert = 50;
+        this.solde = 100.0;
+        this.decouvert = 50.0;
     }
 
     // Troisième Constructeur
@@ -58,7 +58,7 @@ class CompteBancaire {
             possible = true;
 
         } else if (montant >= 0 && montant <= maxi_autorise) {
-            solde = (maxi_autorise - montant);
+            solde = (solde - montant);
             possible = true;
         } else {
             possible = false;
@@ -69,10 +69,12 @@ class CompteBancaire {
     // méthodes estADecouvert() qui renvoie true si le solde du compte du client est
     // négative.
     boolean estADecouvert() {
-        if (this.solde > 0) {
-            return false;
+        boolean i = false;
+        if (this.solde < 0) {
+            i = true;
+
         }
-        return true;
+        return i;
     }
 
     int getNumero() {
@@ -89,8 +91,21 @@ class CompteBancaire {
     }
 
     String infos() {
-        String text = "Client :" + this.client + "\n" + "Numéro  :" + this.numero + "\n" + "Solde :" + this.solde + "\n"
-                + "Decouverte :  " + this.decouvert + "\n";
-        return text;
+        if (solde < 0) {
+            String text = "Client :" + this.client + "\n" + "Numéro du Compte :" + this.numero + "\n"
+                    + "Solde Débiteur :"
+                    + this.solde
+                    + "\n"
+                    + "Decouverte autorisé:  " + this.decouvert + "\n";
+            return text;
+        } else {
+            String text = "Client :" + this.client + "\n" + "Numéro du Compte :" + this.numero + "\n"
+                    + "Solde Créditeur :"
+                    + this.solde
+                    + "\n"
+                    + "Decouverte autorisé:  " + this.decouvert + "\n";
+            return text;
+        }
+
     }
 }

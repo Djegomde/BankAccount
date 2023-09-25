@@ -13,20 +13,35 @@ public class Banque {
     CompteBancaire[] comptes;
 
     Banque(String nom, CompteBancaire[] comptes) {
-    // TODO
+        // TODO
+        this.nom = nom;
+        this.comptes = comptes;
     }
 
     String description() {
+        System.out.print("Banque :" + nom + "[avoir total :" + avoirTotal() + "]");
+        comptes = new CompteBancaire[comptes.length];
+        for (CompteBancaire compte : comptes) {
+            System.out.println("Client :" + compte.client);
+            System.out.println("Numéro : " + compte.numero);
+            if (compte.estADecouvert()) {
+                System.out.println("Solde Débiteur :" + compte.solde);
+            } else {
+                System.out.println("Solde Crediteur :" + compte.solde);
+            }
+            System.out.println("Découverte autorisé :" + compte.decouvert);
+        }
         return null;
-    // TODO
+        // TODO
+
     }
 
     double avoirTotal() {
         return 0;
-    // TODO
+        // TODO
     }
 
     void afficheNumeroComptesDebitsPlanchers() {
-    // TODO
+        // TODO
     }
 }
